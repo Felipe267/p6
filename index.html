@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskara</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+    margin: 5px auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: inline;
+    padding: 5px;
+}
+
+button{
+    border: 0;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+}
+    </style>
+</head>
+<body>
+    <input type="number" placeholder="Digite o coenficiente a" id="a">
+    <input type="number" placeholder="Digite o coenficiente b" id="b">
+    <input type="number" placeholder="Digite o coenficiente c" id="c">
+    <button onclick="calcular()">Calcular</button>
+    <p id="delta"></p>
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            var n1 = parseFloat(document.getElementById("a").value);
+            var n2 = parseFloat(document.getElementById("b").value);
+            var n3 = parseFloat(document.getElementById("c").value);
+            
+            var delta = n2 ** 2 - 4 * n1 * n3;
+
+            if (delta < 0) {
+                document.getElementById("resultado").innerHTML = "sem raiz real";
+            } else {
+                var x1 = (-n2 + Math.sqrt(delta)) / (2 * n1);
+                var x2 = (-n2 - Math.sqrt(delta)) / (2 * n1);
+
+                document.getElementById("resultado").innerHTML = "<br>x1 = " + x1 + "<br><br>x2 = " + x2;
+            }
+        }
+    </script>
+</body>
+</html>
